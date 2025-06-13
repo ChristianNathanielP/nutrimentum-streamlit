@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.preprocessing.image import load_img
+from tensorflow.keras.preprocessing.image import img_to_array, load_img
+from tensorflow.keras.models import load_model
 import tempfile
 import requests
 import os
