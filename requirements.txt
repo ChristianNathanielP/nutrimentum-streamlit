@@ -1,5 +1,14 @@
+# streamlit==1.45.1
+# tensorflow>=2.15.0; python_version < '3.12'
+# Pillow
+# numpy
+# pandas
+# matplotlib
+# joblib
+# scikit-learn
+
 streamlit==1.45.1
-tensorflow>=2.15.0; python_version < '3.12'
+tensorflow==2.19.0
 Pillow
 numpy
 pandas
