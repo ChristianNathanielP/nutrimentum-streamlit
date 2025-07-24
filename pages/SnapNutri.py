@@ -22,18 +22,24 @@ MODEL_URL = "https://huggingface.co/cnginn/indonesiafoodimageclassification/reso
 MODEL_PATH = "classification_model.keras"
 
 def download_model():
-    print("Downloading model from Hugging Face...")
     response = requests.get(MODEL_URL)
     with open(MODEL_PATH, "wb") as f:
         f.write(response.content)
+        
+@st.cache_resource
+def load_keras_model():
+    if not os.path.exists(MODEL_PATH):
+        download_model()
+    return tf.keras.models.load_model(MODEL_PATH)
 
-if not os.path.exists(MODEL_PATH):
-    download_model()
+# Load model with spinner
+with st.spinner("🔄 Loading model, please wait..."):
+    try:
+        model = load_keras_model()
+    except Exception as e:
+        st.error(f"❗ Failed to load model: {e}")
+        st.stop()
 
-model = tf.keras.models.load_model(MODEL_PATH)
-if model is None:
-    st.warning("Model not loaded. Please return to the home page first.")
-    st.stop()
 
 # Load Nutrition Data
 @st.cache_data

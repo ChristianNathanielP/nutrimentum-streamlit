@@ -54,11 +54,11 @@ st.markdown("---")
 st.caption("Built by the Machine Learning Team using Streamlit | **Nutrimentum 2025**")
 
 
-# Model Klasifikasi
-@st.cache_resource
-def preload_model():
-    return load_model('models/classification_model.keras')
+# # Model Klasifikasi
+# @st.cache_resource
+# def preload_model():
+#     return load_model('models/classification_model.keras')
 
-if "classification_model" not in st.session_state:
-    with st.spinner("🔄 Memuat model klasifikasi..."):
-        st.session_state["classification_model"] = preload_model()
+# if "classification_model" not in st.session_state:
+#     with st.spinner("🔄 Memuat model klasifikasi..."):
+#         st.session_state["classification_model"] = preload_model()
